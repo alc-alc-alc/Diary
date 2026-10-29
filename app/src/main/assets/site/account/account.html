@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Настройки аккаунта — Amore</title>
+    <link rel="stylesheet" href="/account.css">
+</head>
+<body>
+<div class="art" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+<header class="nav">
+    <a class="logo" href="https://alc1.ru/">AMORE<span class="dot">.</span><span class="tagline">твори кодом</span></a>
+    <nav class="nav-links" aria-label="Разделы">
+        <a href="https://alc1.ru/">Главная</a>
+        <a href="https://h.alc1.ru/">Дневник</a>
+        <button type="button" id="logout">Выйти</button>
+    </nav>
+</header>
+
+<main class="main">
+    <section>
+        <h1>Настройки<br><span class="acc">аккаунта</span></h1>
+        <p class="lead">Вы вошли как <span class="nickchip" id="who"></span>. Любое изменение подтверждается текущим паролем.</p>
+        <div class="meta">
+            <div class="meta-item"><span class="meta-label">Проект</span><a href="https://h.alc1.ru/">Дневник</a></div>
+            <div class="meta-item"><span class="meta-label">Документы</span><span><a href="https://alc1.ru/terms/">Условия</a>, <a href="https://alc1.ru/privacy/">Конфиденциальность</a></span></div>
+            <div class="meta-item"><span class="meta-label">Удалить аккаунт</span><a href="mailto:craftag00@gmail.com">Написать нам</a></div>
+        </div>
+    </section>
+
+    <section class="card" aria-label="Настройки">
+        <div class="tabs" id="tabs">
+            <button type="button" class="tab" data-v="nick" aria-current="true">Ник</button>
+            <button type="button" class="tab" data-v="pw" aria-current="false">Пароль</button>
+            <button type="button" class="tab" data-v="key" aria-current="false">Ключ</button>
+            <button type="button" class="tab" data-v="sess" aria-current="false">Сеансы</button>
+        </div>
+
+        <form class="view" id="v-nick" novalidate>
+            <label for="nk-new">Новый ник</label>
+            <input id="nk-new" required maxlength="16" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="nk-h">
+            <div class="hint" id="nk-h">3–16 символов: буквы, цифры, _ и -. Войти можно будет по новому нику, старый освободится.</div>
+            <label for="nk-pw">Текущий пароль</label>
+            <div class="field"><input id="nk-pw" type="password" required autocomplete="current-password"><button type="button" class="reveal" data-for="nk-pw" aria-pressed="false">Показать</button></div>
+            <button class="btn" id="nk-btn">Сменить ник</button>
+        </form>
+
+        <form class="view" id="v-pw" novalidate hidden>
+            <label for="pw-old">Текущий пароль</label>
+            <div class="field"><input id="pw-old" type="password" required autocomplete="current-password"><button type="button" class="reveal" data-for="pw-old" aria-pressed="false">Показать</button></div>
+            <label for="pw-new">Новый пароль</label>
+            <div class="field"><input id="pw-new" type="password" required minlength="8" autocomplete="new-password" aria-describedby="pw-h"><button type="button" class="reveal" data-for="pw-new" aria-pressed="false">Показать</button></div>
+            <div class="hint" id="pw-h">Не короче 8 символов. Ключ восстановления остаётся прежним. После смены вы выйдете из «Дневника» на всех устройствах.</div>
+            <button class="btn" id="pw-btn">Сменить пароль</button>
+        </form>
+
+        <div class="view" id="v-key" hidden>
+            <form id="ky-form" novalidate>
+                <div class="view-title">Ключ восстановления</div>
+                <p class="view-text">Он нужен, если вы забудете пароль: по нему можно задать новый и не потерять данные. Новый ключ выпускается только по старому — так никто не сможет подменить его, зная один пароль.</p>
+                <label for="ky-old">Старый ключ</label>
+                <input id="ky-old" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX">
+                <button class="btn" id="ky-btn">Выпустить новый ключ</button>
+            </form>
+            <div id="ky-show" hidden>
+                <div class="view-title">Сохраните новый ключ</div>
+                <p class="view-text">Мы показываем его один раз. Без пароля и без ключа данные аккаунта не вернуть.</p>
+                <div class="keybox" id="ky-code" aria-label="Ключ восстановления"></div>
+                <div class="key-actions">
+                    <button type="button" class="btn ghost" id="ky-copy">Скопировать</button>
+                    <button type="button" class="btn ghost" id="ky-dl">Скачать .txt</button>
+                </div>
+                <label class="check"><input type="checkbox" id="ky-ok"><span>Я сохранил(а) ключ в надёжном месте, отдельно от пароля</span></label>
+                <button type="button" class="btn" id="ky-done" disabled>Готово</button>
+            </div>
+        </div>
+
+        <div class="view" id="v-sess" hidden>
+            <div class="view-title">Активные сеансы</div>
+            <p class="view-text" id="sess-note">Завершать другие сеансы можно через 5 часов после входа в текущий.</p>
+            <div id="sess-list"></div>
+            <button type="button" class="btn ghost" id="sess-refresh">Обновить список</button>
+        </div>
+
+        <div class="err" id="err" role="alert"></div>
+        <div class="info" id="info" role="status"></div>
+    </section>
+</main>
+
+<footer class="footer">
+    <span>© 2026 Amore Studio</span>
+    <nav class="footer-links" aria-label="Документы">
+        <a href="https://alc1.ru/terms/">Условия</a>
+        <a href="https://alc1.ru/privacy/">Конфиденциальность</a>
+        <a href="https://alc1.ru/consent/">Согласие на обработку данных</a>
+    </nav>
+</footer>
+
+<script src="/account.js?v=4"></script>
+</body>
+</html>

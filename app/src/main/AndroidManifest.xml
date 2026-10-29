@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ДневникAmore">
+        <!-- Вторая иконка на телефоне: тот же дневник, но как обёртка над сайтом.
+             Нужна, чтобы сравнить оба варианта на живом устройстве. -->
+        <activity
+            android:name=".WebMainActivity"
+            android:exported="true"
+            android:label="@string/app_name_web"
+            android:theme="@style/Theme.ДневникAmore"
+            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- Консоль логов: без иконки в лончере, открывается долгим тапом по «Дневник»
+             в шапке (JS-мост AmoreApp.openLogs). Запуск всегда ведёт в дневник. -->
+        <activity
+            android:name=".ConsoleActivity"
+            android:exported="false"
+            android:label="@string/app_name_logs"
+            android:theme="@style/Theme.ДневникAmore">
+        </activity>
+    </application>
+
+</manifest>

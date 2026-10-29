@@ -1,0 +1,592 @@
+:root {
+    --board: #145246;
+    --board-2: #0f3f35;
+    --board-deep: #082a23;
+    --chalk: #d4edda;
+    --chalk-dim: #a5c9ca;
+    --paper: #fbf7ec;
+    --paper-2: #f3ecdb;
+    --line: rgba(58, 110, 165, .28);
+    --margin: rgba(232, 97, 90, .55);
+    --ink: #22334f;
+    --ink-soft: #5f6f8a;
+    --sun: #ffb703;
+    --sun-2: #ffd166;
+    --coral: #ee5a3f;
+    --mint: #2fbf8f;
+    --sky: #3a86c8;
+    --shadow: 0 16px 34px -14px rgba(0, 0, 0, .5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--chalk);
+    font: 400 15px/1.55 'Golos Text', system-ui, sans-serif;
+    background: radial-gradient(1100px 640px at 72% -12%, rgba(255, 255, 255, .06), transparent 60%),
+    radial-gradient(900px 620px at 6% 112%, rgba(0, 0, 0, .4), transparent 60%),
+    linear-gradient(158deg, #17594b 0%, #10443a 52%, #0a2e27 100%);
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .5;
+    mix-blend-mode: soft-light;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.4'/></svg>");
+}
+
+#app {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    width: 100%
+}
+
+::selection {
+    background: var(--sun);
+    color: #27200a
+}
+
+h1, h2, h3 {
+    font-family: 'Unbounded', sans-serif
+}
+
+a {
+    color: inherit
+}
+
+button, input, textarea, select {
+    font-family: inherit
+}
+
+.bgfx {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden
+}
+
+.doodle {
+    position: absolute;
+    font: 700 26px 'Caveat', cursive;
+    color: rgba(238, 246, 239, .13);
+    white-space: nowrap;
+    animation: wob 9s ease-in-out infinite alternate
+}
+
+.d1 {
+    top: 9%;
+    left: 4%;
+    transform: rotate(-7deg)
+}
+
+.d2 {
+    top: 22%;
+    right: 6%;
+    transform: rotate(4deg);
+    animation-delay: -3s
+}
+
+.d3 {
+    bottom: 14%;
+    left: 7%;
+    transform: rotate(3deg);
+    animation-delay: -5s;
+    font-size: 22px
+}
+
+.d4 {
+    bottom: 8%;
+    right: 12%;
+    transform: rotate(-5deg);
+    font-size: 32px;
+    animation-delay: -2s
+}
+
+@keyframes wob {
+    from {
+        translate: 0 0;
+        rotate: 0deg
+    }
+    to {
+        translate: 6px -10px;
+        rotate: 1.4deg
+    }
+}
+
+.dust {
+    position: absolute;
+    bottom: -10px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .35);
+    animation: rise linear infinite
+}
+
+.dust:nth-child(5) {
+    left: 12%;
+    animation-duration: 19s
+}
+
+.dust:nth-child(6) {
+    left: 28%;
+    animation-duration: 26s;
+    animation-delay: -8s
+}
+
+.dust:nth-child(7) {
+    left: 47%;
+    animation-duration: 22s;
+    animation-delay: -4s
+}
+
+.dust:nth-child(8) {
+    left: 66%;
+    animation-duration: 30s;
+    animation-delay: -14s
+}
+
+.dust:nth-child(9) {
+    left: 81%;
+    animation-duration: 24s;
+    animation-delay: -10s
+}
+
+.dust:nth-child(10) {
+    left: 93%;
+    animation-duration: 21s;
+    animation-delay: -6s
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(0);
+        opacity: 0
+    }
+    12% {
+        opacity: .6
+    }
+    to {
+        transform: translateY(-105vh);
+        opacity: 0
+    }
+}
+
+.paper {
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    position: relative
+}
+
+.paper.lines {
+    background-image: repeating-linear-gradient(transparent 0 30px, var(--line) 30px 31px)
+}
+
+.paper.marginx::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 52px;
+    width: 2px;
+    background: var(--margin)
+}
+
+.paper.holes::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 20px;
+    bottom: 20px;
+    width: 12px;
+    background-image: radial-gradient(circle, #0b2f28 0 4.5px, rgba(0, 0, 0, .28) 5px, transparent 6.5px);
+    background-size: 12px 44px;
+    background-repeat: repeat-y
+}
+
+.tape {
+    position: absolute;
+    top: -13px;
+    left: 36px;
+    width: 98px;
+    height: 26px;
+    transform: rotate(-3deg);
+    background: linear-gradient(180deg, rgba(255, 214, 102, .92), rgba(255, 196, 70, .72));
+    box-shadow: 0 3px 7px rgba(0, 0, 0, .18)
+}
+
+.tape.right {
+    left: auto;
+    right: 36px;
+    transform: rotate(3deg)
+}
+
+.btn {
+    font: 700 14px 'Golos Text';
+    border: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 12px 18px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    transition: .18s;
+    text-decoration: none
+}
+
+.btn:disabled {
+    opacity: .55;
+    cursor: wait
+}
+
+.btn.sun {
+    background: var(--sun);
+    color: #27200a;
+    box-shadow: 0 5px 0 #b97e00
+}
+
+.btn.sun:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #b97e00
+}
+
+.btn.sun:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #b97e00
+}
+
+.btn.red {
+    background: var(--coral);
+    color: #fff;
+    box-shadow: 0 5px 0 #a63a24
+}
+
+.btn.red:hover {
+    transform: translateY(-2px)
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 2px solid #d9cfb4
+}
+
+.btn.ghost:hover {
+    border-color: var(--sun);
+    background: rgba(255, 183, 3, .08)
+}
+
+.btn.chalk {
+    background: transparent;
+    border: 2px dashed rgba(238, 246, 239, .5);
+    color: var(--chalk);
+    border-radius: 10px
+}
+
+.btn.chalk:hover {
+    background: rgba(255, 255, 255, .09);
+    transform: rotate(-.6deg)
+}
+
+.btn.tiny {
+    padding: 6px 11px;
+    font-size: 12px;
+    border-radius: 6px
+}
+
+.hl {
+    background: linear-gradient(transparent 62%, rgba(255, 183, 3, .85) 62%);
+    padding: 0 .12em
+}
+
+.dim {
+    opacity: .6;
+    font-weight: 400
+}
+
+.hand {
+    font: 700 22px 'Caveat', cursive;
+    color: var(--chalk-dim)
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--chalk-dim);
+    text-decoration: none;
+    font-weight: 600
+}
+
+.back:hover {
+    color: var(--sun-2)
+}
+
+.b {
+    font: 700 10.5px 'Golos Text';
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    display: inline-block;
+    white-space: nowrap
+}
+
+.b.owner {
+    background: var(--sun);
+    color: #3a2c00
+}
+
+.b.admin {
+    background: var(--coral);
+    color: #fff
+}
+
+.b.mod {
+    background: var(--sky);
+    color: #fff
+}
+
+.b.user {
+    background: #8a94a6;
+    color: #fff
+}
+
+.b.cur {
+    background: var(--mint);
+    color: #04351f
+}
+
+.b.code {
+    background: #274a63;
+    color: #cfe8ff
+}
+
+.field {
+    margin: 14px 0;
+    text-align: left
+}
+
+.field label {
+    display: block;
+    font: 700 11px 'Golos Text';
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 4px
+}
+
+.field input, .field textarea, .field select {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #d5c9a8;
+    font: 500 15px 'Golos Text';
+    padding: 9px 2px;
+    color: var(--ink);
+    outline: 0;
+    transition: .2s;
+    border-radius: 0
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 30px
+}
+
+.field input:focus, .field textarea:focus, .field select:focus {
+    border-color: var(--sun);
+    background: rgba(255, 183, 3, .07)
+}
+
+.honey {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0
+}
+
+.pwbar {
+    height: 5px;
+    border-radius: 99px;
+    background: #e6dcc2;
+    margin-top: 8px;
+    overflow: hidden
+}
+
+.pwbar i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--coral);
+    transition: .35s
+}
+
+#toasts {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* 9500 — выше оверлея фокуса недели (.calfocus, 9000): иначе тосты
+       («Урок отменён…») уходили под его backdrop-filter и размывались. */
+    z-index: 9500
+}
+
+.toast {
+    background: var(--paper);
+    color: var(--ink);
+    border-left: 6px solid var(--mint);
+    padding: 12px 16px;
+    border-radius: 6px;
+    box-shadow: 0 14px 26px rgba(0, 0, 0, .4);
+    font: 500 14px 'Golos Text';
+    max-width: 340px;
+    animation: tin .3s ease
+}
+
+.toast.err {
+    border-left-color: var(--coral)
+}
+
+.toast.info {
+    border-left-color: var(--sky)
+}
+
+.toast.key {
+    border-left-color: var(--sun)
+}
+
+.toast.out {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: .4s
+}
+
+@keyframes tin {
+    from {
+        transform: translateX(40px);
+        opacity: 0
+    }
+}
+
+#modal-root .ovl {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 18, 14, .66);
+    backdrop-filter: blur(2px);
+    z-index: 250;
+    display: flex;
+    padding: 20px;
+    overflow: auto
+}
+
+#modal-root .mcard {
+    margin: auto;
+    width: 100%;
+    max-width: 540px;
+    padding: 34px 30px 30px;
+    animation: pop .28s cubic-bezier(.2, 1.4, .5, 1);
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+}
+
+#modal-root .mcard * {
+    color: inherit;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(.92) translateY(14px);
+        opacity: 0
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px)
+    }
+}
+
+/* Анимация появления — только при первой отрисовке (после body.ready не повторяется) */
+body:not(.ready) .screen {
+    animation: rise .35s ease both
+}
+.screen {
+    min-width: 0
+}
+
+.notfound {
+    min-height: 80vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 20px
+}
+
+.notfound h1 {
+    font-size: 60px
+}
+
+@media (max-width: 920px) {
+    .pagehead .hand {
+        display: none
+    }
+}
+
+.toast {
+    position: relative;
+    overflow: hidden;
+}
+
+.toast-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    transform-origin: left;
+    animation: toastBar 4s linear forwards;
+}
+
+@keyframes toastBar {
+    from  {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(0);
+    }
+}

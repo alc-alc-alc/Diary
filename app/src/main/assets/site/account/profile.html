@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Профиль — Amore</title>
+    <link rel="stylesheet" href="/account.css">
+</head>
+<body>
+<div class="art" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+<header class="nav">
+    <a class="logo" href="https://alc1.ru/">AMORE<span class="dot">.</span><span class="tagline">твори кодом</span></a>
+    <nav class="nav-links" aria-label="Разделы">
+        <a href="https://alc1.ru/">Главная</a>
+        <a href="https://h.alc1.ru/">Дневник</a>
+        <button type="button" id="logout">Выйти</button>
+    </nav>
+</header>
+
+<main class="main">
+    <section>
+        <h1>Профиль<br><span class="acc">Amore</span></h1>
+        <p class="lead" id="lead">Вы вошли как <span class="nickchip" id="who">…</span>. Это ваша карточка — отсюда вход в настройки и в дневник.</p>
+        <div class="meta">
+            <div class="meta-item"><span class="meta-label">Дневник</span><a href="https://h.alc1.ru/">Открыть журнал</a></div>
+            <div class="meta-item" id="meta-settings"><span class="meta-label">Настройки</span><a href="/settings">Аккаунт, пароль, сеансы</a></div>
+            <div class="meta-item"><span class="meta-label">Документы</span><span><a href="https://alc1.ru/terms/">Условия</a>, <a href="https://alc1.ru/privacy/">Конфиденциальность</a></span></div>
+        </div>
+    </section>
+
+    <section class="card card-profile" aria-label="Профиль">
+        <div class="phead">
+            <div class="pavatar" id="av">A</div>
+            <div class="pmeta">
+                <h2 id="pnick">…</h2>
+                <div class="prow-line">
+                    <span class="badge" id="prole" hidden></span>
+                    <span class="dim" id="pts"></span>
+                </div>
+                <p class="pslug" id="pslug">загрузка…</p>
+            </div>
+        </div>
+        <div class="pactions" id="pactions">
+            <a class="btn" href="/settings" id="btn-settings">⚙ Настройки аккаунта</a>
+            <a class="btn ghost" href="https://h.alc1.ru/">Дневник →</a>
+        </div>
+    </section>
+</main>
+
+<script src="/profile.js"></script>
+</body>
+</html>

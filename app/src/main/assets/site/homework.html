@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дневник</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📗</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/board.css?v=12">
+<link rel="stylesheet" href="css/auth.css?v=11">
+<link rel="stylesheet" href="css/app.css?v=37">
+</head>
+<body>
+
+<div class="bgfx" aria-hidden="true">
+  <div class="doodle d1">a² + b² = c²</div>
+  <div class="doodle d2">Δ = b² − 4ac</div>
+  <div class="doodle d3">тише! идёт урок…</div>
+  <div class="doodle d4">✦ x = 7 ✦</div>
+  <i class="dust"></i><i class="dust"></i><i class="dust"></i>
+  <i class="dust"></i><i class="dust"></i><i class="dust"></i>
+</div>
+
+<main id="app"></main>
+
+<div id="splash" aria-hidden="true">
+  <div class="splash-mark">
+    <svg viewBox="0 0 64 64" width="58" height="58" aria-hidden="true" focusable="false">
+      <path d="M32 21c-5-4-12-4-18-2v26c6-2 13-2 18 2 5-4 12-4 18-2V19c-6-2-13-2-18 2z"
+            fill="none" stroke="#eef6ef" stroke-width="2.8" stroke-linejoin="round"/>
+      <path d="M32 21v26" stroke="#ffd166" stroke-width="2.8" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="splash-title">Дневник</div>
+  <div class="splash-sub">Amore</div>
+  <div class="splash-bar"><i></i></div>
+</div>
+<div id="toasts"></div>
+<div id="modal-root"></div>
+
+<script src="js/util.js?v=16"></script>
+<script src="js/crypto.js?v=15"></script>
+<script src="js/auth.js?v=16"></script>
+<script src="js/groups.js?v=34"></script>
+<script src="js/render.js?v=29"></script>
+<script src="js/app.js?v=18"></script>
+
+<script>
+/* Шрифты подключаем ПОСЛЕ старта приложения. Firefox блокирует выполнение
+   скриптов, пока не загрузится внешний stylesheet из <head>: если
+   fonts.googleapis.com недоступен, запуск откладывался на ~10 секунд. */
+(function(){
+  var href='https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Golos+Text:wght@400;500;700&family=Caveat:wght@600;700&display=swap';
+  function add(){
+    var l=document.createElement('link');
+    l.rel='stylesheet'; l.href=href;
+    document.head.appendChild(l);
+  }
+  if(document.readyState==='complete') add();
+  else addEventListener('load', add, {once:true});
+})();
+</script>
+</body>
+</html>

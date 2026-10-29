@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Дневник Amore</string>
+    <string name="app_name_web">Дневник (веб)</string>
+    <string name="app_name_logs">Логи</string>
+</resources>

@@ -1,0 +1,1 @@
+const CFG = { API: 'bak_api/' };

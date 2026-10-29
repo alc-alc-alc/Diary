@@ -1,0 +1,2205 @@
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 22px;
+    background: linear-gradient(180deg, rgba(9, 38, 32, .96), rgba(9, 38, 32, .88));
+    border-bottom: 2px dashed rgba(238, 246, 239, .22);
+    backdrop-filter: blur(6px)
+}
+
+.brand {
+    font: 800 19px 'Unbounded';
+    letter-spacing: .5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none
+}
+.brand small {
+    font: 700 10px 'Golos Text';
+    letter-spacing: .24em;
+    color: var(--sun-2);
+    border: 1px solid rgba(255, 209, 102, .5);
+    padding: 3px 8px;
+    border-radius: 99px
+}
+
+.userchip {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, .07);
+    padding: 6px 8px 6px 14px;
+    border-radius: 99px;
+    font-weight: 600
+}
+
+.shell {
+    display: grid;
+    grid-template-columns: 228px 1fr;
+    gap: 28px;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 28px 22px 70px;
+    width: 100%
+}
+
+.sidebar {
+    position: sticky;
+    top: 84px;
+    align-self: start;
+    display: grid;
+    gap: 6px
+}
+
+.nav a {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 11px 14px;
+    border-radius: 9px;
+    text-decoration: none;
+    color: var(--chalk-dim);
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: .18s
+}
+.nav a:hover {
+    color: var(--chalk);
+    transform: translateX(4px);
+    background: rgba(255, 255, 255, .05)
+}
+.nav a.on {
+    color: var(--sun-2);
+    border-color: rgba(255, 209, 102, .4);
+    background: rgba(255, 209, 102, .07)
+}
+
+.plaque {
+    margin-top: 22px;
+    border: 1.5px dashed rgba(238, 246, 239, .3);
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 12px;
+    color: var(--chalk-dim)
+}
+.plaque b {
+    color: var(--chalk);
+    font-family: 'Unbounded';
+    font-size: 11px;
+    letter-spacing: .1em;
+    display: block;
+    margin-bottom: 6px
+}
+
+.pagehead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 14px;
+    margin-bottom: 22px
+}
+.pagehead h2 {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 800
+}
+.pagehead .hand {
+    margin-left: auto;
+    transform: rotate(-1.5deg)
+}
+
+.stats {
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px
+}
+
+.stat {
+    border: 2px dashed rgba(238, 246, 239, .3);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: .2s
+}
+.stat:hover {
+    transform: translateY(-3px) rotate(-.5deg);
+    border-color: rgba(255, 209, 102, .55)
+}
+.stat b {
+    font: 800 26px 'Unbounded';
+    color: var(--sun-2);
+    display: block
+}
+.stat span {
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--chalk-dim)
+}
+
+.joinbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding: 16px 18px;
+    align-items: center
+}
+.joinbar input {
+    flex: 1;
+    min-width: 140px
+}
+
+.grid {
+    display: grid;
+    grid-template-columns:repeat(auto-fill, minmax(270px, 1fr));
+    gap: 20px
+}
+
+.gcard {
+    padding: 24px 22px 20px;
+    transition: .22s;
+    cursor: pointer
+}
+.gcard:nth-child(odd) {
+    transform: rotate(-.5deg)
+}
+.gcard:nth-child(even) {
+    transform: rotate(.45deg)
+}
+.gcard:hover {
+    transform: translateY(-5px) rotate(0);
+    box-shadow: 0 24px 40px -16px rgba(0, 0, 0, .55)
+}
+.gcard h3 {
+    font-size: 17px;
+    margin: 4px 0 6px
+}
+.gcard p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    min-height: 38px
+}
+
+.gmeta {
+    display: flex;
+    gap: 14px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    align-items: center
+}
+
+.ghead {
+    padding: 26px 28px;
+    border-radius: 14px;
+    border: 8px solid #0a2d26;
+    background: linear-gradient(150deg, #124639, #0d3a30);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px
+}
+.ghead h2 {
+    font-size: clamp(20px, 3vw, 28px)
+}
+
+.codebox {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    background: rgba(255, 255, 255, .08);
+    border: 1.5px dashed rgba(238, 246, 239, .4);
+    padding: 8px 14px;
+    border-radius: 10px
+}
+.codebox code {
+    font: 800 20px 'Unbounded';
+    letter-spacing: .24em;
+    color: var(--sun-2)
+}
+
+.members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 24px
+}
+
+.member {
+    display: inline-flex;
+    gap: 7px;
+    align-items: center;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(238, 246, 239, .18);
+    padding: 6px 8px 6px 12px;
+    border-radius: 99px;
+    font-size: 13px;
+    transition: .15s
+}
+.member:hover {
+    background: rgba(255, 255, 255, .14)
+}
+.member .kick {
+    border: 0;
+    background: rgba(238, 90, 63, .25);
+    color: #ffb3a5;
+    border-radius: 99px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 11px;
+    line-height: 1
+}
+
+.nochat {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #efe8d6;
+    color: #9a8f74;
+    border: 2px dashed #d5c9a8;
+    border-radius: 8px;
+    padding: 11px 16px;
+    font-size: 13.5px;
+    margin-bottom: 26px
+}
+
+.lesson {
+    padding: 26px 26px 20px;
+    margin: 22px 0;
+    transition: .22s
+}
+.lesson:nth-child(odd) {
+    transform: rotate(-.4deg)
+}
+.lesson:nth-child(even) {
+    transform: rotate(.35deg)
+}
+.lesson:hover {
+    transform: translateY(-4px) rotate(0)
+}
+.lesson h3 {
+    font-size: 17px;
+    margin-bottom: 4px
+}
+
+.lmeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin-bottom: 12px
+}
+
+.chip {
+    background: #efe6cd;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-weight: 600
+}
+.chip.due {
+    background: #ffe3d9;
+    color: #b0341c
+}
+.chip.due.warn {
+    background: var(--sun);
+    color: #3a2c00
+}
+.chip.done {
+    background: #d8f3e6;
+    color: #14633f
+}
+
+.lbody {
+    min-height: 64px;
+    white-space: pre-wrap;
+    line-height: 30px;
+    font-size: 15px;
+    padding-left: 20px
+}
+.lbody.locked {
+    color: #a2543f;
+    font-style: italic;
+    white-space: normal
+}
+.lbody.spin {
+    color: var(--ink-soft)
+}
+
+.lfoot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1.5px dashed #e0d5ba
+}
+
+/* реакции на ДЗ: чипы с количеством справа + 🔥 для выбора (недавние 5 + «›» ко всем) */
+.lreactions {
+    position: relative;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 6px
+}
+/* чипы реакций: видны всем, своя — подсвечена */
+.react-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 8px;
+    border-radius: 99px;
+    border: 1.5px solid #e6dcc2;
+    background: #fff;
+    font: 600 12px/1.2 'Golos Text';
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: transform .12s ease, border-color .12s ease, background-color .12s ease
+}
+.react-chip:hover {
+    transform: translateY(-1px);
+    border-color: #cfc3a3
+}
+.react-chip b {
+    font-weight: 800;
+    color: var(--ink)
+}
+.react-chip.on {
+    background: #ffe9a8;
+    border-color: #e0a200
+}
+.react-more {
+    font: 700 11.5px 'Golos Text';
+    color: var(--ink-soft);
+    padding: 2px 6px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, .55)
+}
+.react-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 9px;
+    border-radius: 99px;
+    border: 1.5px dashed #d9cfb4;
+    background: rgba(255, 255, 255, .55);
+    font: 600 13px/1.2 'Golos Text';
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: transform .15s ease, background-color .15s ease,
+                border-color .15s ease, color .15s ease
+}
+.react-btn:hover {
+    transform: translateY(-1px);
+    background: #fff;
+    border-color: #cfc3a3
+}
+.react-btn.on {
+    background: #ffe9a8;
+    border-color: #e0a200;
+    color: #3a2a00
+}
+.react-btn b {
+    font-weight: 800
+}
+.react-btn:active {
+    transform: translateY(0)
+}
+
+.react-pop {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 8px);
+    z-index: 60;
+    display: none;
+    width: 272px;
+    padding: 10px 12px 12px;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1.5px solid #e0d5ba;
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(8, 35, 29, .30)
+}
+/* мостик, чтобы меню не закрывалось при переводе мыши с кнопки на панель */
+.react-pop::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 12px
+}
+.lreactions:hover .react-pop,
+.lreactions.open .react-pop {
+    display: block
+}
+.rp-cap {
+    font: 700 10.5px 'Golos Text';
+    letter-spacing: .10em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 2px 0 6px
+}
+.rp-cap-all {
+    margin-top: 10px
+}
+.rp-row {
+    display: flex;
+    gap: 4px;
+    align-items: center
+}
+.rp-e {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 4px 6px;
+    border-radius: 9px;
+    border: 1.5px solid transparent;
+    background: rgba(255, 255, 255, .6);
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color .12s ease, transform .12s ease, border-color .12s ease
+}
+.rp-e:hover {
+    background: #fff4d6;
+    transform: translateY(-1px)
+}
+.rp-e.on {
+    border-color: #e0a200;
+    background: #ffe9a8
+}
+.rp-e i {
+    font: 700 10px 'Golos Text';
+    font-style: normal;
+    color: var(--ink-soft)
+}
+.rp-more {
+    margin-left: auto;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1.5px dashed #d9cfb4;
+    background: transparent;
+    color: var(--ink-soft);
+    font: 700 16px/1 'Golos Text';
+    cursor: pointer;
+    transition: transform .18s ease, background-color .15s ease
+}
+.rp-more:hover {
+    background: #fff;
+    transform: translateX(1px)
+}
+.lreactions.full .rp-more {
+    transform: rotate(90deg)
+}
+.rp-full {
+    display: none;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 3px
+}
+.lreactions.full .rp-full {
+    display: grid
+}
+
+.crypto-tag {
+    margin-left: auto;
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    color: #a99d7d;
+    text-transform: uppercase
+}
+
+.empty {
+    border: 2px dashed rgba(238, 246, 239, .3);
+    border-radius: 14px;
+    padding: 44px 24px;
+    text-align: center;
+    color: var(--chalk-dim)
+}
+.empty .hand {
+    font-size: 28px;
+    color: var(--chalk)
+}
+
+.tbl {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px
+}
+.tbl th {
+    font: 700 10.5px 'Golos Text';
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 2px solid #e4d9bd
+}
+.tbl td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #eee3c9;
+    vertical-align: middle
+}
+.tbl tr {
+    transition: .15s
+}
+.tbl tbody tr:hover {
+    background: rgba(255, 183, 3, .07)
+}
+.tbl select {
+    background: #fff;
+    border: 1.5px solid #d9cfb4;
+    border-radius: 7px;
+    padding: 6px 8px;
+    font-weight: 600;
+    color: var(--ink)
+}
+
+.fp {
+    font-family: ui-monospace, monospace;
+    font-size: 11.5px;
+    color: var(--ink-soft)
+}
+
+.notecard {
+    padding: 22px 24px;
+    margin-top: 24px;
+    font-size: 14px
+}
+.notecard h3 {
+    font-size: 15px;
+    margin-bottom: 10px
+}
+.notecard li {
+    margin: 6px 0 6px 20px;
+    color: var(--ink-soft)
+}
+.notecard b {
+    color: var(--ink)
+}
+
+.profile {
+    padding: 34px;
+    display: flex;
+    gap: 26px;
+    flex-wrap: wrap;
+    align-items: flex-start
+}
+.avatar {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: var(--board);
+    color: var(--sun-2);
+    display: grid;
+    place-items: center;
+    font: 800 30px 'Unbounded';
+    flex: 0 0 auto;
+    box-shadow: inset 0 0 0 4px rgba(255, 209, 102, .4)
+}
+
+.prow {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 9px 0;
+    border-bottom: 1.5px dashed #e6dcc2;
+    font-size: 14px;
+    min-width: 300px;
+    flex-wrap: wrap
+}
+.prow span {
+    color: var(--ink-soft)
+}
+
+.sitefoot {
+    border-top: 2px dashed rgba(238, 246, 239, .22);
+    padding: 26px 22px 34px;
+    text-align: center;
+    color: var(--chalk-dim);
+    font-size: 13px;
+    background: rgba(5, 24, 20, .55);
+    position: relative;
+    z-index: 1;
+    margin-top: auto
+}
+.sitefoot p {
+    max-width: 760px;
+    margin: 0 auto 12px
+}
+.sitefoot .rights {
+    font: 700 14px 'Golos Text';
+    letter-spacing: .12em;
+    color: var(--chalk);
+    text-transform: uppercase
+}
+.sitefoot a {
+    color: var(--sun-2);
+    text-decoration: none
+}
+.sitefoot a:hover {
+    text-decoration: underline
+}
+
+@media (max-width: 920px) {
+    .shell {
+        grid-template-columns:1fr;
+        padding-top: 18px
+    }
+    .sidebar {
+        position: static;
+        display: flex;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 6px
+    }
+    .nav a {
+        white-space: nowrap
+    }
+    .plaque {
+        display: none
+    }
+}
+
+.schedgrid {
+    display: grid;
+    grid-template-columns:repeat(6, 1fr);
+    gap: 10px
+}
+.schedcol b {
+    display: block;
+    text-align: center;
+    font: 700 12px 'Golos Text';
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 6px
+}
+
+.schedrow {
+    display: grid;
+    gap: 4px;
+    margin-bottom: 8px
+}
+.schedrow input {
+    border: 1.5px solid #d9cfb4;
+    border-radius: 6px;
+    padding: 5px 6px;
+    font-size: 12.5px;
+    background: #fff;
+    color: var(--ink);
+    width: 100%
+}
+
+.calhead {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 14px;
+    flex-wrap: wrap
+}
+.calgrid {
+    display: grid;
+    grid-template-columns:repeat(6, 1fr);
+    gap: 10px
+}
+
+.calcol {
+    background: rgba(255, 255, 255, .05);
+    border: 1.5px dashed rgba(238, 246, 239, .25);
+    border-radius: 10px;
+    padding: 10px;
+    min-height: 120px
+}
+.calcol.today {
+    border-color: var(--sun);
+    background: rgba(255, 183, 3, .08)
+}
+.calcol h4 {
+    font: 700 12px 'Golos Text';
+    color: var(--chalk-dim);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: .08em
+}
+
+.calitem {
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 12px;
+    margin-bottom: 6px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: background-color .25s ease, opacity .25s ease, transform .25s ease
+}
+/* подсветка ячейки после отмены/возврата урока */
+.calitem.flash {
+    animation: calFlash .95s ease
+}
+@keyframes calFlash {
+    0%   { background: #ffe9a8 }
+    55%  { background: #fff4d6 }
+    100% { background: var(--paper) }
+}
+
+/* ── фокус на неделе («⚙ Настроить» в календаре) ── */
+body.calfocus-open {
+    overflow: hidden
+}
+body.calfocus-open #app {
+    opacity: .16;
+    filter: blur(5px)
+}
+.calfocus {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 24, 19, .38);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    transition: opacity .28s ease
+}
+.calfocus.on {
+    opacity: 1
+}
+.cf-panel {
+    width: min(1700px, 97vw);
+    transform: scaleX(.62) scaleY(.88);
+    opacity: 0;
+    transition: transform .38s cubic-bezier(.2, .8, .25, 1), opacity .3s ease
+}
+.calfocus.on .cf-panel {
+    transform: none;
+    opacity: 1
+}
+.cf-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+    color: #eef6ef
+}
+.cf-title {
+    font: 700 16px 'Golos Text'
+}
+.cf-hint {
+    margin-left: 12px;
+    font: 500 12px 'Golos Text';
+    color: rgba(238, 246, 239, .55)
+}
+.cf-close {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(238, 246, 239, .4);
+    background: transparent;
+    color: #eef6ef;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color .15s ease
+}
+.cf-close:hover {
+    background: rgba(255, 255, 255, .1)
+}
+.cf-row {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+    overflow-x: auto;
+    padding-bottom: 6px
+}
+.cf-day {
+    flex: 1 1 0;
+    min-width: 150px;
+    padding: 10px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .05);
+    border: 1.5px dashed rgba(238, 246, 239, .22);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: background-color .18s ease, border-color .18s ease, transform .18s ease
+}
+.cf-day h4 {
+    font: 700 11.5px 'Golos Text';
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: rgba(238, 246, 239, .7)
+}
+.cf-day.over {
+    border-color: var(--sun);
+    background: rgba(255, 183, 3, .10)
+}
+/* ── панель управления на месте колонки «Вс» ── */
+.cf-side {
+    flex: 0 0 214px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .06);
+    border: 1.5px solid rgba(238, 246, 239, .28);
+    color: #eef6ef;
+    overflow: auto;
+    position: relative
+}
+/* зона удаления: подсказка появляется, когда карточку урока тащат на панель */
+.cp-trash {
+    position: absolute;
+    inset: 6px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px dashed #ff8b7a;
+    background: rgba(255, 60, 40, .42);
+    color: #fff;
+    font: 800 14px/1.35 'Golos Text';
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .45);
+    pointer-events: none;
+    z-index: 9
+}
+.cf-side.trash-over {
+    border-color: #ff8b7a;
+    background: rgba(255, 60, 40, .10)
+}
+.cf-side.trash-over .cp-trash {
+    display: flex
+}
+/* пока тащим урок над панелью — приглушаем содержимое, чтобы подсказка читалась */
+.cf-side.trash-over > *:not(.cp-trash) {
+    opacity: .3;
+    transition: opacity .15s ease
+}
+.cp-title {
+    font: 700 11.5px 'Golos Text';
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: rgba(238, 246, 239, .7);
+    margin: 0
+}
+.cp-folder {
+    border: 1.5px dashed rgba(238, 246, 239, .25);
+    border-radius: 12px;
+    padding: 8px
+}
+.cp-folder-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font: 700 13px 'Golos Text'
+}
+.cp-add {
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border-radius: 7px;
+    border: 1.5px dashed rgba(238, 246, 239, .5);
+    background: transparent;
+    color: #eef6ef;
+    font: 700 19px/1 'Golos Text';
+    cursor: pointer
+}
+.cp-add:hover {
+    background: rgba(255, 255, 255, .12)
+}
+.cp-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px
+}
+.cp-empty {
+    font-size: 11.5px;
+    color: rgba(238, 246, 239, .45)
+}
+.cp-block {
+    position: relative;
+    padding: 6px 26px 6px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    background: rgba(10, 44, 36, .82);
+    cursor: grab;
+    font-size: 12px
+}
+.cp-block.drag {
+    opacity: .45
+}
+.cp-block b {
+    display: block;
+    font: 700 12px 'Golos Text'
+}
+.cp-block span {
+    color: rgba(238, 246, 239, .7)
+}
+.cp-x {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: rgba(238, 246, 239, .6);
+    font: 700 10px/1 'Golos Text';
+    cursor: pointer
+}
+.cp-x:hover {
+    background: rgba(255, 255, 255, .14);
+    color: #fff
+}
+.cp-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: auto
+}
+.cp-act {
+    padding: 7px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(238, 246, 239, .3);
+    background: rgba(255, 255, 255, .05);
+    color: #eef6ef;
+    font: 700 12px 'Golos Text';
+    text-align: left;
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease
+}
+.cp-act:hover {
+    background: rgba(255, 255, 255, .13);
+    border-color: rgba(238, 246, 239, .55)
+}
+/* меню «какой урок добавить» (в модалке) */
+.blockmenu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 340px;
+    overflow: auto
+}
+.blockpick {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1.5px solid #d9cfb4;
+    background: #fff;
+    color: var(--ink);
+    cursor: pointer;
+    font: 600 13px 'Golos Text';
+    text-align: left;
+    transition: border-color .15s ease, background-color .15s ease
+}
+.blockpick b {
+    font-weight: 700
+}
+.blockpick span {
+    opacity: .65;
+    font-size: 12px;
+    white-space: nowrap
+}
+.blockpick:hover {
+    border-color: var(--sun);
+    background: rgba(255, 183, 3, .1)
+}
+/* плейсхолдер: показывает, как будет выглядеть урок на новом месте */
+.cf-ghost {
+    border: 1.5px dashed rgba(255, 207, 92, .7);
+    border-radius: 10px;
+    padding: 8px 10px;
+    background: rgba(255, 207, 92, .07);
+    color: rgba(238, 246, 239, .85);
+    font-size: 12.5px;
+    animation: cfGhostIn .16s ease
+}
+.cf-ghost .t {
+    font: 800 13px 'Golos Text'
+}
+@keyframes cfGhostIn {
+    from { opacity: 0; transform: translateY(-3px) }
+    to   { opacity: 1; transform: none }
+}
+.cf-item {
+    background: rgba(10, 44, 36, .82);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 10px;
+    /* верхняя строка: время слева, кнопка ✕/↺ справа */
+    position: relative;
+    padding: 8px 10px;
+    color: #eef6ef;
+    cursor: grab;
+    transition: opacity .15s ease, transform .15s ease
+}
+.cf-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px
+}
+.cf-item.drag {
+    opacity: .45
+}
+.cf-item.cancel {
+    opacity: .5
+}
+.cf-item .t {
+    font: 800 13px 'Golos Text'
+}
+.cf-item .sub {
+    font-size: 12.5px;
+    color: rgba(238, 246, 239, .85);
+    margin-top: 2px
+}
+/* кабинет в карточке — кликабельная подпись, по клику становится полем */
+.cf-cab {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    border-bottom: 1px dashed rgba(255, 207, 92, .45);
+    transition: color .15s ease, border-color .15s ease
+}
+.cf-cab:hover {
+    color: var(--sun);
+    border-bottom-color: var(--sun)
+}
+.cf-cab-inp {
+    width: 76px;
+    font: 500 12px 'Golos Text';
+    color: #eef6ef;
+    background: rgba(255, 255, 255, .07);
+    border: 1px dashed rgba(255, 207, 92, .6);
+    border-radius: 5px;
+    padding: 1px 5px;
+    outline: none
+}
+/* компактная кнопка «Отменить/Вернуть» в правом верхнем углу карточки */
+.cf-act {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 26px;
+    padding: 0;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255, 207, 92, .55);
+    background: rgba(255, 207, 92, .08);
+    color: #ffcf5c;
+    font: 700 12px/1 'Golos Text';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease
+}
+.cf-act:hover {
+    background: var(--sun);
+    border-color: transparent;
+    color: #27200a
+}
+.cf-item.cancel .cf-act {
+    color: #9ee6c3;
+    border-color: rgba(158, 230, 195, .5);
+    background: rgba(158, 230, 195, .08)
+}
+.cf-item.cancel .cf-act:hover {
+    background: #9ee6c3;
+    border-color: transparent;
+    color: #0b2a20
+}
+.cf-chip {
+    display: inline-block;
+    margin-top: 6px;
+    font: 700 10px 'Golos Text';
+    padding: 1px 7px;
+    border-radius: 99px
+}
+.cf-chip.hw {
+    background: #d8f3e6;
+    color: #14633f
+}
+.cf-chip.canc {
+    background: #ffe3d9;
+    color: #b0341c
+}
+/* старые большие кнопки «Отменить/Вернуть»: в разметке больше не используются
+   (их заменила иконка .cf-act), правила оставлены на случай возврата */
+.cf-btns {
+    margin-top: 8px;
+    display: flex;
+    gap: 6px
+}
+/* кнопки в фокусе недели: свои цвета, не «наследуются» от светлой темы */
+.cf-btns .btn {
+    color: #ffcf5c;
+    border: 1.5px solid rgba(255, 207, 92, .55);
+    background: rgba(255, 207, 92, .08);
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease
+}
+.cf-btns .btn:hover {
+    background: var(--sun);
+    border-color: transparent;
+    color: #27200a
+}
+.cf-item.cancel .cf-btns .btn {
+    color: #9ee6c3;
+    border-color: rgba(158, 230, 195, .5);
+    background: rgba(158, 230, 195, .08)
+}
+.cf-item.cancel .cf-btns .btn:hover {
+    background: #9ee6c3;
+    border-color: transparent;
+    color: #0b2a20
+}
+.cf-empty {
+    font-size: 12px;
+    color: rgba(238, 246, 239, .45)
+}
+.cf-add {
+    flex: 0 0 62px;
+    border-radius: 14px;
+    border: 1.5px dashed rgba(238, 246, 239, .35);
+    background: transparent;
+    color: #eef6ef;
+    font: 300 30px 'Golos Text';
+    cursor: pointer;
+    transition: background-color .18s ease, border-color .18s ease
+}
+.cf-add:hover {
+    background: rgba(255, 255, 255, .08);
+    border-color: var(--sun)
+}
+.calitem.cancel {
+    opacity: .6
+}
+.calitem.cancel .t {
+    text-decoration: line-through
+}
+.calitem .t {
+    font-weight: 700
+}
+.calitem .chip {
+    font-size: 10px;
+    padding: 1px 7px
+}
+
+.gtabs {
+    display: flex;
+    gap: 8px;
+    margin: 18px 0
+}
+.gtab {
+    padding: 9px 16px;
+    border-radius: 99px;
+    border: 1.5px dashed rgba(238, 246, 239, .35);
+    background: transparent;
+    color: var(--chalk-dim);
+    font: 600 13px 'Golos Text';
+    cursor: pointer;
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease,
+                box-shadow .18s ease, transform .18s ease
+}
+.gtab:not(.on):hover {
+    transform: translateY(-1px);
+    border-color: rgba(238, 246, 239, .65);
+    color: var(--chalk)
+}
+.gtab.on {
+    background: var(--sun);
+    color: #27200a;
+    border-color: transparent;
+    box-shadow: 0 4px 14px rgba(255, 183, 3, .22)
+}
+.gtab:active {
+    transform: translateY(0)
+}
+
+/* мягкое появление контента вкладки (без перерисовки всей страницы) */
+#gtab-body.tabin,
+#gcal.tabin {
+    animation: tabIn .26s cubic-bezier(.2, .7, .3, 1) both
+}
+@keyframes tabIn {
+    from { opacity: 0; transform: translateY(7px) }
+    to   { opacity: 1; transform: none }
+}
+
+.auditrow {
+    padding: 10px 14px;
+    border-bottom: 1.5px dashed #e6dcc2;
+    font-size: 13.5px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: var(--ink)
+}
+.auditrow .when {
+    color: var(--ink-soft);
+    font-size: 12px
+}
+
+@media (max-width: 920px) {
+    .schedgrid, .calgrid {
+        grid-template-columns:repeat(3, 1fr)
+    }
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh
+}
+
+.wz {
+    animation: pop .3s cubic-bezier(.2, 1.4, .5, 1)
+}
+.wz-title {
+    font-size: 22px;
+    margin-bottom: 6px
+}
+.wz-sub {
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin-bottom: 14px
+}
+.wz-foot {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 18px
+}
+
+.slugrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, .04);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-family: ui-monospace, monospace;
+    font-size: 13px
+}
+.slugrow span {
+    color: var(--ink-soft)
+}
+.slugrow input {
+    flex: 1;
+    border: 0;
+    background: transparent;
+    font: 500 14px ui-monospace, monospace;
+    outline: 0
+}
+
+.notifbar {
+    background: #fff6df;
+    border: 1.5px dashed rgba(184, 138, 0, .55);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    display: grid;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--ink);
+    box-shadow: 0 10px 22px rgba(4, 20, 16, .18)
+}
+.notifbar > div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+/* Модалки открываются поверх оверлея фокуса недели (.calfocus, 9000),
+   иначе меню «какой урок добавить» окажется под размытой панелью.
+   Ниже тостов (9500) и сплэша (9999). */
+#modal-root {
+    position: relative;
+    z-index: 9400
+}
+#modal-root .mcard {
+    background: var(--paper);
+    color: var(--ink)
+}
+#modal-root .mcard:has(.schedwrap) {
+    max-width: 760px
+}
+
+.schedwrap {
+    color: var(--ink)
+}
+
+.daytabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 14px 0 10px
+}
+.daytab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px 8px 16px;
+    border-radius: 99px;
+    border: 1.5px solid #e4d9bd;
+    background: #fff;
+    color: var(--ink-soft);
+    font: 700 13px 'Golos Text';
+    cursor: pointer;
+    transition: transform .15s ease, border-color .15s ease,
+                box-shadow .15s ease, background-color .15s ease
+}
+.daytab b {
+    font-weight: 800
+}
+.daytab i {
+    font: 800 10.5px 'Golos Text';
+    font-style: normal;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 99px;
+    background: rgba(31, 61, 46, .08);
+    color: var(--ink-soft);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center
+}
+.daytab:hover {
+    border-color: var(--sun);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(184, 138, 0, .12)
+}
+.daytab.on {
+    background: linear-gradient(180deg, #ffcf5c, var(--sun));
+    border-color: transparent;
+    color: #27200a;
+    box-shadow: 0 3px 0 #b97e00
+}
+.daytab.on i {
+    background: rgba(39, 32, 10, .18);
+    color: #27200a
+}
+
+/* ── шапка расписания: быстрое заполнение ── */
+.sched-auto {
+    margin: 14px 0 6px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: linear-gradient(150deg, #12463a, #0a2a22 78%);
+    border: 1.5px solid rgba(255, 209, 102, .22);
+    box-shadow: 0 12px 26px rgba(4, 20, 16, .22);
+    color: #eef6ef
+}
+.sa-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font: 800 14px 'Golos Text';
+    margin-bottom: 12px
+}
+.sa-sub {
+    font: 500 12px 'Golos Text';
+    color: rgba(238, 246, 239, .55)
+}
+.sa-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end
+}
+.sa-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font: 700 10px 'Golos Text';
+    letter-spacing: .10em;
+    text-transform: uppercase;
+    color: rgba(238, 246, 239, .6)
+}
+.sa-field input {
+    width: 88px;
+    padding: 8px 10px;
+    border-radius: 11px;
+    border: 1.5px solid rgba(238, 246, 239, .22);
+    background: rgba(255, 255, 255, .07);
+    color: #eef6ef;
+    font: 700 13px 'Golos Text';
+    outline: none;
+    transition: border-color .15s ease, background-color .15s ease
+}
+.sa-field input[type=time] {
+    width: 104px
+}
+.sa-field input:focus {
+    border-color: var(--sun);
+    background: rgba(255, 255, 255, .12)
+}
+.sa-go {
+    margin-left: auto;
+    border-radius: 12px;
+    padding: 10px 20px
+}
+.sa-days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px
+}
+.af-daypill {
+    position: relative;
+    cursor: pointer
+}
+.af-daypill input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0
+}
+.af-daypill span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    padding: 6px 12px;
+    border-radius: 99px;
+    border: 1.5px dashed rgba(238, 246, 239, .3);
+    font: 700 12.5px 'Golos Text';
+    color: rgba(238, 246, 239, .65);
+    transition: background-color .15s ease, border-color .15s ease,
+                color .15s ease, transform .12s ease
+}
+.af-daypill span:hover {
+    transform: translateY(-1px);
+    border-color: rgba(238, 246, 239, .6)
+}
+.af-daypill input:checked + span {
+    background: var(--sun);
+    border-color: transparent;
+    color: #27200a
+}
+.af-daypill input:focus-visible + span {
+    outline: 2px solid var(--sun);
+    outline-offset: 2px
+}
+
+/* В модалке есть `#modal-root .mcard * { color: inherit }` — перебиваем её,
+   иначе светлый текст на тёмной панели «Заполнить» становится невидимым. */
+#modal-root .mcard .sched-auto {
+    color: #eef6ef
+}
+#modal-root .mcard .sched-auto .sa-sub,
+#modal-root .mcard .sched-auto .sa-field {
+    color: rgba(238, 246, 239, .62)
+}
+#modal-root .mcard .sched-auto .sa-field input {
+    color: #eef6ef
+}
+#modal-root .mcard .sched-auto .af-daypill span {
+    color: rgba(238, 246, 239, .68)
+}
+#modal-root .mcard .sched-auto .af-daypill span:hover {
+    color: #fff
+}
+#modal-root .mcard .sched-auto .af-daypill input:checked + span {
+    color: #27200a
+}
+
+.slotlist {
+    display: grid;
+    gap: 10px
+}
+
+.slotcard {
+    display: grid;
+    grid-template-columns:40px auto 1fr 64px 32px;
+    gap: 10px;
+    align-items: center;
+    background: #fff;
+    border: 1.5px solid #e4d9bd;
+    border-radius: 12px;
+    padding: 10px 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .06)
+}
+
+.slotnum {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--board);
+    color: var(--sun-2);
+    display: grid;
+    place-items: center;
+    font: 800 15px 'Unbounded'
+}
+
+.slottime {
+    display: flex;
+    align-items: center;
+    gap: 6px
+}
+.slottime .dash {
+    color: #b3a88c
+}
+.slottime input {
+    width: 104px
+}
+
+.slotcard input {
+    border: 1.5px solid #e4d9bd;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    font: 500 13.5px 'Golos Text';
+    padding: 8px 10px;
+    outline: 0;
+    transition: .15s
+}
+.slotcard input:focus {
+    border-color: var(--sun);
+    box-shadow: 0 0 0 3px rgba(255, 183, 3, .15)
+}
+
+.slotsubj {
+    width: 100%
+}
+.slotcab {
+    text-align: center
+}
+
+.slotdel {
+    border: 0;
+    background: #f6e8e4;
+    color: #b0341c;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: .15s
+}
+.slotdel:hover {
+    background: var(--coral);
+    color: #fff
+}
+
+.btn.chalk2 {
+    background: transparent;
+    border: 2px dashed rgba(34, 51, 79, .35);
+    color: var(--ink-soft);
+    border-radius: 10px
+}
+.btn.chalk2:hover {
+    border-color: var(--sun);
+    color: var(--ink)
+}
+
+@media (max-width: 640px) {
+    .slotcard {
+        grid-template-columns:36px 1fr 56px 30px
+    }
+    .slottime {
+        grid-column: 1/-1
+    }
+}
+
+.clickable {
+    cursor: pointer
+}
+.clickable:hover {
+    text-decoration: underline
+}
+
+.avatar.mini {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+    flex: 0 0 auto;
+    cursor: pointer
+}
+
+.reqrow {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 6px;
+    border-bottom: 1.5px dashed #e6dcc2;
+    color: var(--ink)
+}
+.reqrow:last-child {
+    border-bottom: 0
+}
+.reqrow.hot {
+    background: #ffe3d9;
+    border-radius: 8px
+}
+
+.slugcode {
+    background: #efe6cd;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 12px
+}
+
+/* аудит в стиле Discord */
+.dcard {
+    background: #0d352c;
+    border: 1.5px solid rgba(238, 246, 239, .15);
+    border-radius: 12px;
+    padding: 12px 14px
+}
+
+.dc-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0 8px
+}
+.dc-divider span {
+    font: 600 11px 'Golos Text';
+    color: var(--chalk-dim);
+    padding: 2px 10px;
+    border-radius: 99px;
+    border: 1px solid rgba(238, 246, 239, .2)
+}
+.dc-divider::before, .dc-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(238, 246, 239, .15)
+}
+
+.dc-row {
+    display: flex;
+    gap: 12px;
+    padding: 7px 4px;
+    border-radius: 8px
+}
+.dc-row:hover {
+    background: rgba(255, 255, 255, .05)
+}
+
+.dc-head {
+    display: flex;
+    gap: 10px;
+    align-items: baseline
+}
+.dc-time {
+    font-size: 11px;
+    color: var(--chalk-dim)
+}
+.dc-text {
+    font-size: 14px;
+    color: var(--chalk)
+}
+.dc-embed {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, .07);
+    border-left: 3px solid var(--sun);
+    border-radius: 6px;
+    font-size: 12.5px;
+    color: var(--chalk-dim)
+}
+
+.search-container {
+    background: rgba(30, 60, 45, 0.85);
+    border-radius: 16px;
+    padding: 4px 8px 4px 12px;
+    min-width: 500px;
+    max-width: 700px;
+    position: relative;
+    display: flex;
+    align-items: center
+}
+
+#global-search-input {
+    border: none;
+    background: transparent;
+    color: white;
+    width: 100%;
+    font-size: 14px;
+    outline: none;
+    text-align: center
+}
+#global-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6)
+}
+
+#search-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 2px;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    transition: all 0.2s ease;
+    opacity: 0;
+    transform: scaleY(0.95);
+    transform-origin: top;
+    pointer-events: none
+}
+#search-dropdown.show {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1);
+    pointer-events: auto
+}
+#search-dropdown .search-item {
+    padding: 8px 12px;
+    color: white;
+    cursor: pointer;
+    border-radius: 16px;
+    background: rgba(30, 60, 45, 0.85);
+    margin: 4px 12px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    opacity: 0;
+    transform: scale(0.8)
+}
+#search-dropdown .search-item.visible {
+    opacity: 1;
+    transform: scale(1)
+}
+#search-dropdown .search-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: white
+}
+#search-dropdown .search-item.loading {
+    color: #ccc;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+#search-dropdown .search-item.error {
+    color: #ff9999
+}
+#search-dropdown .search-item.success {
+    color: #99ff99
+}
+
+@keyframes toastIn {
+    from {
+        opactity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes toastBar {
+    from {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(0);
+    }
+}
+
+/* ── мобильная верхняя панель: бренд и профиль в одну строку, поиск ниже ── */
+@media (max-width: 760px) {
+    .topbar {
+        flex-wrap: wrap;
+        justify-content: space-between !important;
+        gap: 8px;
+        padding: 8px 12px
+    }
+    .topbar .brand {
+        position: static !important;
+        left: auto !important;
+        order: 1;
+        font-size: 16px
+    }
+    .topbar .userchip {
+        position: static !important;
+        right: auto !important;
+        order: 2;
+        margin-left: 0
+    }
+    .topbar .search-container {
+        order: 3;
+        flex: 1 1 100%;
+        min-width: 0;
+        max-width: none;
+        margin-top: 4px
+    }
+    #global-search-input {
+        text-align: left;
+        padding: 4px 2px
+    }
+    #search-dropdown {
+        left: 0;
+        right: 0
+    }
+}
+
+/* ── «Мои группы» как папка: список групп внутри ── */
+.navfolder {
+    display: flex;
+    align-items: center;
+    gap: 2px
+}
+.navfolder > a {
+    flex: 1 1 auto
+}
+.navcaret {
+    background: transparent;
+    border: 0;
+    color: var(--chalk-dim);
+    cursor: pointer;
+    padding: 6px 8px;
+    font-size: 13px;
+    line-height: 1;
+    border-radius: 6px
+}
+.navcaret:hover {
+    color: var(--sun-2);
+    background: rgba(255, 255, 255, .05)
+}
+.navsub {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 2px 0 6px 14px;
+    padding-left: 8px;
+    border-left: 1.5px dashed rgba(238, 246, 239, .18)
+}
+.navsub a {
+    padding: 7px 10px;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: 8px
+}
+.navsub[hidden] {
+    display: none
+}
+.navsub-empty {
+    padding: 6px 10px;
+    font-size: 12px;
+    color: var(--chalk-dim);
+    opacity: .7
+}
+@media (max-width: 920px) {
+    .navfolder .navcaret,
+    .navsub { display: none }
+}
+
+
+/* ── плавная загрузка: сплэш «Дневник Amore» и мягкая смена страниц ── */
+#app {
+    transition: opacity .16s ease, filter .3s ease
+}
+#app.swapping {
+    opacity: 0
+}
+
+#splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: radial-gradient(circle at 50% 42%, #12463a, #08231d 72%);
+    transition: opacity .45s ease, visibility .45s ease;
+    animation: splashSafe 0s 9s forwards   /* страховка, если JS не стартовал */
+}
+
+/* ── плавный финал загрузки ────────────────────────────────────────────────
+   Сплэш уходит в прозрачность, а готовый интерфейс в это же время «всплывает»
+   снизу на 10px и проявляется. Раньше #app просто появлялся под затухающей
+   заставкой — на медленной машине это читалось как рывок.
+   Класс .appear ставит render() только на первой отрисовке и снимает его
+   по animationend, чтобы не мешать переходу .swapping при смене страниц. */
+#app.appear {
+    animation: appIn .55s cubic-bezier(.22, .75, .25, 1) .08s both
+}
+@keyframes appIn {
+    from { opacity: 0; transform: translate3d(0, 10px, 0) }
+    to   { opacity: 1; transform: none }
+}
+body.ready #splash {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none
+}
+.splash-mark {
+    line-height: 0;
+    animation: splashPulse 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 18px rgba(255, 209, 102, .28))
+}
+.splash-title {
+    font: 800 27px 'Unbounded';
+    letter-spacing: .04em;
+    color: #eef6ef
+}
+.splash-sub {
+    font: 700 11px 'Unbounded';
+    letter-spacing: .42em;
+    text-transform: uppercase;
+    color: var(--sun-2);
+    opacity: .9;
+    margin-left: .42em
+}
+.splash-bar {
+    width: 160px;
+    height: 3px;
+    margin-top: 12px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, .14);
+    overflow: hidden
+}
+.splash-bar i {
+    display: block;
+    height: 100%;
+    width: 40%;
+    border-radius: 99px;
+    background: var(--sun-2);
+    animation: splashSlide 1.2s ease-in-out infinite
+}
+@keyframes splashPulse {
+    50% { transform: scale(1.09); opacity: .8 }
+}
+@keyframes splashSlide {
+    0% { transform: translateX(-110%) }
+    100% { transform: translateX(280%) }
+}
+@keyframes splashSafe {
+    to { opacity: 0; visibility: hidden }
+}
+@media (prefers-reduced-motion: reduce) {
+    .splash-mark, .splash-bar i { animation: none }
+    #app { transition: none }
+    #app.appear { animation: none }
+    #gtab-body.tabin, #gcal.tabin, .calitem.flash { animation: none }
+    .gtab, .calitem, .react-btn, .react-chip, .rp-e, .rp-more { transition: none }
+    .cf-panel { transition: none }
+}
+
+/* свёрнутая папка «Настройки прав» в окне группы */
+#gs-rights[hidden] {
+    display: none
+}
+
+/* уведомления внутри фокуса недели — читаемые на тёмном */
+.cf-notifs .notifbar {
+    color: #eef6ef;
+    background: rgba(255, 183, 3, .10);
+    border-color: rgba(255, 183, 3, .45);
+    margin-bottom: 12px
+}
+.cf-notifs .notifbar b {
+    color: #ffcf5c
+}
+.cf-notifs .notifbar .btn.ghost {
+    color: #eef6ef;
+    border-color: rgba(238, 246, 239, .4)
+}
+.cf-notifs .notifbar .btn.ghost:hover {
+    background: rgba(255, 255, 255, .12)
+}
+.cf-notifs:empty,
+.cf-notifs .notifbar:empty {
+    display: none
+}
+
+/* крестик у уведомления */
+.notif-x {
+    margin-left: auto;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(31, 61, 46, .28);
+    background: transparent;
+    color: var(--ink-soft);
+    font: 700 12px/1 'Golos Text';
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease
+}
+.notif-x:hover {
+    background: rgba(31, 61, 46, .08);
+    border-color: currentColor;
+    color: var(--ink)
+}
+.cf-notifs .notif-x {
+    border-color: rgba(238, 246, 239, .35);
+    color: #eef6ef
+}
+.cf-notifs .notif-x:hover {
+    background: rgba(255, 255, 255, .12);
+    color: #fff
+}
+
+/* плавное исчезновение уведомления */
+.notif-row {
+    max-height: 140px;
+    overflow: hidden;
+    transition: opacity .24s ease, transform .24s ease,
+                max-height .24s ease, margin .24s ease, padding .24s ease
+}
+.notif-row.notif-out {
+    opacity: 0;
+    transform: translateX(12px);
+    max-height: 0;
+    margin-top: -8px;
+    padding-top: 0;
+    padding-bottom: 0
+}
+.notifbar.notif-out-bar {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity .24s ease, transform .24s ease
+}
+.cf-notifs .notif-row.notif-out {
+    color: #eef6ef
+}
+
+/* ник в топбаре — ссылка на настройки аккаунта (my.alc1.ru) */
+.userchip .uchip-nick {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: border-color .15s ease, color .15s ease
+}
+.userchip .uchip-nick:hover {
+    border-bottom-color: currentColor;
+    color: var(--sun)
+}
+.userchip .uchip-nick:focus-visible {
+    outline: 2px solid var(--sun);
+    outline-offset: 3px;
+    border-radius: 4px
+}
+
+/* Синяя вспышка по тапу в WebView: убираем подсветку везде. */
+html,
+body,
+a,
+button,
+.nav a,
+.navfolder > a,
+.navsub a,
+.btn,
+.chip,
+.tab {
+    -webkit-tap-highlight-color: transparent
+}
+a:focus,
+button:focus {
+    outline: none
+}
+
+/* ── Нижняя панель на телефоне ──
+   Сайдбар уезжает вниз и становится таб-баром. Папка «Мои группы» раскрывается
+   через display:contents, чтобы её ссылка стала обычным пунктом панели. */
+@media (max-width: 760px) {
+    .shell {
+        display: flex;
+        flex-direction: column;
+        min-height: 100dvh;
+        /* отдаём отступы контенту, чтобы панель внизу шла от края до края */
+        padding: 16px 0 0
+    }
+    .shell > .screen {
+        order: 1;
+        flex: 1 1 auto;
+        min-width: 0;
+        padding: 0 14px 18px
+    }
+    .sidebar {
+        order: 2;
+        position: sticky;
+        bottom: 0;
+        width: 100%;
+        margin: 10px 0 0;
+        padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+        border-radius: 0;
+        background: rgba(9, 34, 29, .96);
+        backdrop-filter: blur(8px);
+        z-index: 60
+    }
+    .sidebar .nav {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        width: 100%
+    }
+    .sidebar .nav > a,
+    .sidebar .nav > .navfolder > a {
+        flex: 1 1 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        padding: 7px 2px;
+        font-size: 17px;
+        line-height: 1.1;
+        text-align: center;
+        border-radius: 10px;
+        overflow: hidden
+    }
+    .sidebar .nl {
+        display: block;
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: .01em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%
+    }
+    .sidebar .navfolder {
+        display: contents
+    }
+    .sidebar .navcaret,
+    .sidebar .navsub {
+        display: none !important
+    }
+}

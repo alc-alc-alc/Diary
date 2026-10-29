@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Логотип «Дневника» из сплэша сайта (homework.html): открытая книга мелом и
+     жёлтый корешок (цвет sun). Тот же SVG-путь, отмасштабированный в safe-зону
+     адаптивной иконки: 108dp, содержимое в центральных 72dp. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="1.15"
+        android:scaleY="1.15"
+        android:translateX="17.2"
+        android:translateY="17.2">
+        <path
+            android:pathData="M32 21c-5-4-12-4-18-2v26c6-2 13-2 18 2 5-4 12-4 18-2V19c-6-2-13-2-18 2z"
+            android:fillColor="#00000000"
+            android:strokeColor="#EEF6EF"
+            android:strokeWidth="2.8"
+            android:strokeLineJoin="round"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M32 21v26"
+            android:fillColor="#00000000"
+            android:strokeColor="#FFD166"
+            android:strokeWidth="2.8"
+            android:strokeLineCap="round" />
+    </group>
+</vector>

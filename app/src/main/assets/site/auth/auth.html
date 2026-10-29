@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amore — аккаунт</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="/auth.css">
+</head>
+<body>
+
+<div class="art" aria-hidden="true">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+</div>
+
+<div class="gw" aria-hidden="true">
+    <div class="gw-body"></div>
+    <div class="gw-edge"></div>
+    <div class="gw-shine"></div>
+</div>
+
+<header class="nav">
+    <div class="nav-logo">AMORE<span class="dot">.</span><span class="tagline">твори кодом</span></div>
+    <div class="nav-status"><span class="status-dot"></span></div>
+</header>
+
+<main class="main">
+    <section>
+        <!-- метка «alc1.ru» с чертой убрана 27.10 -->
+        <h1>Аккаунт<br><span class="acc">Amore</span></h1>
+        <p class="lead" id="lead">Вход в аккаунт Amore.</p>
+        <!-- блок реквизитов убран 27.10: лишний текст, из-за него форма не влезала на телефон -->
+    </section>
+
+    <section class="card" aria-label="Аккаунт Amore">
+        <div class="tabs" id="tabs">
+            <button type="button" class="tab on" id="tab-login" aria-current="true" onclick="show('login')">Вход</button>
+            <button type="button" class="tab" id="tab-reg" onclick="show('reg')">Регистрация</button>
+        </div>
+
+        <form id="f-login" class="view" novalidate onsubmit="return doLogin(event)">
+            <label for="lg-id">Ник</label>
+            <input id="lg-id" name="username" required autocomplete="username" autocapitalize="none" spellcheck="false">
+            <label for="lg-pw">Пароль</label>
+            <div class="field">
+                <input id="lg-pw" name="password" type="password" required autocomplete="current-password">
+                <button type="button" class="reveal" data-for="lg-pw" aria-pressed="false">Показать</button>
+            </div>
+            <input id="lg-hp" class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="row">
+                <span class="pow-status" role="status" aria-live="polite"></span>
+                <button type="button" class="link" onclick="show('reset')">Забыли пароль?</button>
+            </div>
+            <button class="btn" id="lg-btn">Войти</button>
+        </form>
+
+        <form id="f-reg" class="view" novalidate hidden onsubmit="return doReg(event)">
+            <label for="rg-nick">Ник</label>
+            <input id="rg-nick" name="username" required maxlength="16" autocomplete="username" autocapitalize="none" spellcheck="false" aria-describedby="rg-nick-h">
+            <div class="hint" id="rg-nick-h">3–16 символов: буквы, цифры, _ и -</div>
+            <!-- почта убрана из проекта
+            <label for="rg-email">Email</label>
+            <input id="rg-email" name="email" type="email" required maxlength="200" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="you@example.com" aria-describedby="rg-email-h">
+            <div class="hint" id="rg-email-h">Можно использовать вместо ника для входа.</div>
+            -->
+            <label for="rg-pw">Пароль</label>
+            <div class="field">
+                <input id="rg-pw" name="new-password" type="password" required minlength="8" autocomplete="new-password" aria-describedby="rg-pw-h">
+                <button type="button" class="reveal" data-for="rg-pw" aria-pressed="false">Показать</button>
+            </div>
+            <div class="hint" id="rg-pw-h">Не короче 8 символов. Пароль шифрует ваши данные, поэтому мы не можем его восстановить, но дадим ключ восстановления.</div>
+            <input id="rg-hp" class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <label class="check"><input type="checkbox" id="rg-terms"><span>Принимаю <a href="https://alc1.ru/terms/" target="_blank" rel="noopener">условия использования</a></span></label>
+            <label class="check"><input type="checkbox" id="rg-pd"><span>Даю согласие на обработку персональных данных (ник) по <a href="https://alc1.ru/privacy/" target="_blank" rel="noopener">политике конфиденциальности</a></span></label>
+            <div class="pow-status" role="status" aria-live="polite"></div>
+            <button class="btn" id="rg-btn">Создать аккаунт</button>
+        </form>
+
+        <form id="f-reset" class="view" novalidate hidden onsubmit="return doReset(event)">
+            <div class="view-title">Восстановление доступа</div>
+            <p class="view-text">Введите ник, ключ восстановления, который вы сохранили при регистрации, и новый пароль. Данные аккаунта останутся на месте.</p>
+            <label for="rs-nick">Ник</label>
+            <input id="rs-nick" name="username" required autocomplete="username" autocapitalize="none" spellcheck="false">
+            <label for="rs-key">Ключ восстановления</label>
+            <input id="rs-key" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX">
+            <label for="rs-pw">Новый пароль</label>
+            <div class="field">
+                <input id="rs-pw" name="new-password" type="password" required minlength="8" autocomplete="new-password">
+                <button type="button" class="reveal" data-for="rs-pw" aria-pressed="false">Показать</button>
+            </div>
+            <div class="hint">Не короче 8 символов. После смены вы выйдете со всех устройств.</div>
+            <input id="rs-hp" class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="pow-status" role="status" aria-live="polite"></div>
+            <button class="btn" id="rs-btn">Сменить пароль</button>
+            <div class="row"><button type="button" class="link" onclick="show('login')">Вернуться ко входу</button></div>
+            <p class="hint" style="margin-top:14px">Нет ключа? Тогда вернуть доступ к старым данным не получится: они зашифрованы вашим паролем. <a href="https://t.me/alc_online" target="_blank" rel="noopener" style="color:#fff">Напишите нам</a>, поможем с новым аккаунтом.</p>
+        </form>
+
+        <div id="key-view" class="view" hidden>
+            <div class="view-title" id="key-title">Сохраните ключ восстановления</div>
+            <p class="view-text" id="key-text">Он нужен, если вы забудете пароль. Мы показываем его один раз. Без пароля и без ключа данные аккаунта не вернуть.</p>
+            <div class="keybox" id="key-code" aria-label="Ключ восстановления"></div>
+            <div class="key-actions">
+                <button type="button" class="btn ghost" id="key-copy">Скопировать</button>
+                <button type="button" class="btn ghost" id="key-dl">Скачать .txt</button>
+            </div>
+            <label class="check"><input type="checkbox" id="key-ok"><span>Я сохранил(а) ключ в надёжном месте, отдельно от пароля</span></label>
+            <button type="button" class="btn" id="key-go" disabled>Продолжить</button>
+        </div>
+
+        <div class="err" id="err" role="alert"></div>
+        <div class="info" id="info" role="status"></div>
+    </section>
+</main>
+
+<!-- бегущая полоса «AMORE · ALC» убрана 27.10 -->
+
+
+<footer class="footer">
+    <span>© 2026 Amore Studio</span>
+    <span>твори кодом</span>
+</footer>
+
+<script src="/auth.js?v=5"></script>
+
+<script>
+/* Шрифты подключаем ПОСЛЕ старта приложения. Firefox блокирует выполнение
+   скриптов, пока не загрузится внешний stylesheet из <head>: если
+   fonts.googleapis.com недоступен, запуск откладывался на ~10 секунд. */
+(function(){
+  var href='https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap';
+  function add(){
+    var l=document.createElement('link');
+    l.rel='stylesheet'; l.href=href;
+    document.head.appendChild(l);
+  }
+  if(document.readyState==='complete') add();
+  else addEventListener('load', add, {once:true});
+})();
+</script>
+</body>
+</html>
